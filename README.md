@@ -1,12 +1,15 @@
-README - STATE MACHINE
-Matthew R. Johnson
+# STATE MACHINE LIB
+### Matthew R. Johnson
 
-This project implements a state machine creation API in C.
+#### This project implements a state machine creation API in C.
+
 The declarations of the API functions can be found in 'inc/StateMachine.h'.
 
 To compile the API as a library for integration with other projects:
+
     make lib
-This will build libsm.a and put it with StateMachine.h in 'out/lib'.
+
+This will build **libsm.a** and put it with StateMachine.h in 'out/lib'.
 
 This project also includes some examples that link against this library.
 1) Linear - Implements and injects inputs into a linear state machine
@@ -14,15 +17,19 @@ This project also includes some examples that link against this library.
 3) Interactive - Uses the same printer state machine but allows user input events
 
 These can built with:
-   make {linear|printer|interactive|all}
+
+    make {linear|printer|interactive|all}
+
 The default Make target is all.
 These binaries will be built and put in '/out'.
 
 There's a special target that will rebuild and run a binary:
-	make run_{linear|printer|interactive}
+
+    make run_{linear|printer|interactive}
 
 And of course to clean up the outputs:
-	make clean
+
+    make clean
 
 
 TODO (if I were to continue developing on this):
