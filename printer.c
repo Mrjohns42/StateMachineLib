@@ -83,13 +83,15 @@ Status_e run_printer_machine()
         printf("\n");
     }
 
-    return true;
+    return SUCCESS;
 }
 
 
 int main(void)
 {
     printf("\nPRINTER STATE MACHINE\n");
-    run_printer_machine();
-    printf("DONE\n");
+    Status_e status = run_printer_machine();
+    if (SUCCESS == status) printf("DONE\n");
+    else printf("ERROR: %d\n", status);
+    return status;
 }

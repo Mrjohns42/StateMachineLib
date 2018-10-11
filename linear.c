@@ -61,13 +61,15 @@ Status_e run_linear_machine()
         printf("\n");
     }
 
-    return true;
+    return SUCCESS;
 }
 
 
 int main(void)
 {
     printf("\nLINEAR STATE MACHINE\n");
-    run_linear_machine();
-    printf("DONE\n");
+    Status_e status = run_linear_machine();
+    if (SUCCESS == status) printf("DONE\n");
+    else printf("ERROR: %d\n", status);
+    return status;
 }
