@@ -13,7 +13,7 @@
 Status_e _status;
 #define VERIFY(statement, expected) {if((_status = statement) != expected) return _status;}
 
-char * INSTRUCTIONS = "\nType a single event char,\noptionally followed by a space plus any event data\n\n";
+char * INSTRUCTIONS = "\nType a single event char,\noptionally followed by a space plus any event data.\nType 'quit' to stop.\n\n";
 
 void state_transition(State_t * curr, State_t * next, Event_t * evt)
 {
@@ -77,6 +77,7 @@ Status_e interactive_printer_machine()
     nread = getline(&line, &len, stdin);
     while (nread != -1)
     {
+        if (0 == strncmp(line, "quit\n", len)) break;
         if (nread < 2) // one char plus \n
         {
             printf("\n");
@@ -105,6 +106,7 @@ Status_e interactive_printer_machine()
         printf("Enter event: ");
         nread = getline(&line, &len, stdin);
     }
+    printf("\nMACHINE STOPPED\n");
     free(line);
     return SUCCESS;
 }
